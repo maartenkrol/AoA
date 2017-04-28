@@ -1,3 +1,4 @@
 # AoA
 AoA Paper in progress
-This is a second version of the AoA paper. I make it now available on github.
+This is a second version of the AoA paper. I make it now available on github. Since the github rendering of the jupyter notebooks 
+is not optimal, please watch the manuscript through **nbviewer**
