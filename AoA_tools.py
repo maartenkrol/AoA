@@ -21,8 +21,8 @@ class AoA_tools:
                         'EMAC_output_T63','EMAC_output_T106','ACTM_output_T42L67','NIES_output_2.5x2.5_JCDAS','TOMCAT','GEOS']
         self.odir = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1','EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         self.transpose = [True,True,False,False,False,False,False,False,False,True]
-        self.symbol = ['ro-','rx-','bo-','bx-','go-','gx-','ko-','gx','co-','yo-']
-        self.symbol2 = ['r-','r--','b-','b--','g-','g--','k-','g-','c-','y-']
+        self.symbol = ['ro-','rx-','bo-','bx-','go-','gx-','ko-','yx','co-','yo-']
+        self.symbol2 = ['r-','r--','b-','b--','g-','g--','k-','y-','c-','y-']
 
 
         self.mname = ['LMDZ3','LMDZ5A','TM5','TM5','EMAC_T63','EMAC_T106','ACTM','NIES-TM','TOMCAT','GEOS_Chem']
@@ -35,11 +35,10 @@ class AoA_tools:
           ['RN222','RN222E','SF6','E90','NHsurface','SHsurface','surface','land','ocean','troposphere','stratosphere'],
           ['RN222','RN222E','SF6','E90','NHsurface','SHsurface','surface','land','ocean','troposphere','stratosphere'],
           ['rn222','rn222E','sf6','e90','nh','sh','surf','land','ocean','trop','strat'],
-          ['RnO','RnE','SF6','e90','NHs','SHs','sur','lan','oce','tro','str'],
+          ['rn222','rn222E','sf6','e90','nh','sh','surf','land','ocean','trop','strat'],
           ['rn222','rne222','sf6','e90','aoanhsurf','aoashsurf','aoasurf','aoaland','aoawater','aoatrop','aoastrat'],
           ['Rn','RnE','SF6','e90','NH','SH','surface','land','ocean','troposphere','stratosphere'],        
         ]
-
 
 
         self.plot_grid = False
@@ -48,6 +47,9 @@ class AoA_tools:
         self.dsf6 = []
         self.dnh  = []
         self.dsh  = []
+        self.nh = []
+        self.sh = []
+        self.latitude = []
         self.d222rn = []
         self.dland  = []
         self.times = []
@@ -168,7 +170,7 @@ class AoA_tools:
         amax=100.0
         plotpres=50   # hPa
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['surface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -189,7 +191,7 @@ class AoA_tools:
         amax=1.4
         plotpres=50   # hPa
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['NHsurface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -210,7 +212,7 @@ class AoA_tools:
         amax=1.4
         plotpres=50   # hPa
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['SHsurface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -231,7 +233,7 @@ class AoA_tools:
         amax=120
         plotpres=1000.0
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ3','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ3','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['land'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -250,7 +252,7 @@ class AoA_tools:
         amax=60
         plotpres=1000.0
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['ocean'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -292,7 +294,7 @@ class AoA_tools:
         amax=7.0
         plotpres=1000.0
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
-        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','NIES','TOMCAT'] 
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['surface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -315,7 +317,7 @@ class AoA_tools:
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
 #        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
         models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
-                       'EMAC_T63','EMAC_T106','ACTM_T42L67','TOMCAT']
+                       'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT']
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['SF6','NHsurface','SHsurface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -325,10 +327,31 @@ class AoA_tools:
         self.plot_prog(dates, conversion, yaxis, ptype, amin, amax, 
               plotpres, models, tracers) 
 
+    def figure_sf6_aoa_b(self):
+        f,ax = pl.subplots(1,figsize=(8,6))
+        symbol2 = ['r-','r--','b-','b--','g-','g--','k-','y-','c-']
+        models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
+                       'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT']
+
+        for i in range(8):
+            nh = self.nh[i]
+            sh = self.sh[i]
+            lat = self.latitude[i]
+            nh = nh[::-1]  # mirror NH
+            tdiff = sh - nh
+            ax.plot(lat,tdiff,symbol2[i],linewidth=2, label = models[i])
+        ax.set_xlim([0,90])
+        ax.grid(True)
+        ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+        ax.set_ylabel('Age of Air difference (year)')
+        ax.set_xlabel('|latitude|')
+        f.show()
+ 
+         
     def figure_sf6_aoa2(self):
         models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
-                       'EMAC_T63','EMAC_T106','ACTM_T42L67','TOMCAT']
-        colors = ['r','r','b','b','g','g','k','c']
+                       'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT']
+        colors = ['r','r','b','b','g','g','k','y','c']
         dsf6 = np.array(self.dsf6)
         dsh = np.array(self.dsh)
         dnh = np.array(self.dnh)
@@ -336,8 +359,8 @@ class AoA_tools:
         f,ax = pl.subplots(figsize=(8,6))
         ax.scatter(
             dsf6, dsh+dnh, marker='o', c=colors, s=150)
-        xx1 = [30,150,-10,0,100,130,150,-20]
-        yy1 = [-50,0,20,50,50,10,-30,-20]
+        xx1 = [30,150,-10,0,100,130,150,50,-20]
+        yy1 = [-50,0,20,50,50,10,-30,0,-20]
 
 
         for label, x, y, xx, yy in zip(models, dsf6, dsh+dnh, xx1, yy1):
@@ -346,8 +369,8 @@ class AoA_tools:
                 bbox=dict(boxstyle='round,pad=0.5', fc='lightgrey', alpha=0.9),
                 arrowprops=dict(arrowstyle = '->', connectionstyle='arc3,rad=0'))
         ax.set_ylabel('SF6 relative to South Pole (ppt)')
-        ax.set_ylim([1.5,2.1])
-        ax.set_xlim([0.3,0.8])
+        ax.set_ylim([1.1,2.1])
+        ax.set_xlim([0.2,0.8])
         ax.grid(True)
         ax.set_ylabel('Composite AoA (year)')
         ax.set_xlabel('Maximum SF6 latitudional gradient (ppt)')
@@ -367,7 +390,7 @@ class AoA_tools:
 #        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
 #        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
         models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
-                       'EMAC_T63','EMAC_T106','ACTM_T42L67','TOMCAT']
+                       'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT']
         # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
                      #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
         tracers = ['222Rn','land'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
@@ -379,16 +402,16 @@ class AoA_tools:
 
     def figure_rn_aoa2(self):
         models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
-       'EMAC_T63','EMAC_T106','ACTM_T42L67','TOMCAT']
-        colors = ['r','r','b','b','g','g','k','c']
+       'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT']
+        colors = ['r','r','b','b','g','g','k','y','c']
         d222rn = np.array(self.d222rn)
         dland = np.array(self.dland)
 
         f,ax = pl.subplots(figsize=(8,6))
         ax.scatter(
             d222rn, dland, marker='o', c=colors, s=150)
-        xx1 = [30,140,25,35,60,10,100,-20]
-        yy1 = [30,-10,30,-40,-50,40,-40,-20]
+        xx1 = [30,140,25,25,60,10,100,20,-20]
+        yy1 = [30,-10,30,-40,-50,40,-40,20,-20]
 
         for label, x, y, xx, yy in zip(models, d222rn, dland, xx1, yy1):
             ax.annotate(label, xy=(x, y), xytext=(xx, yy),
@@ -402,8 +425,33 @@ class AoA_tools:
         ax.set_xlabel('Ln(222Rn) 950 hPa - Ln(222Rn) 500 hPa')
         f.show()
 
+    def test(self):
+        dates = []
+        for year in range(2000,2011):
+            for month in range(1,13):
+                dates.append('year %4.4i month %2.2i'%(year,month))
+        conversion = 'years'  #               ['mol/mol','nmol/mol','pmol/mol','days','years'
+        yaxis = 'trop' #'strat'    #  ToggleButtons(options=['normal','log','trop','strat']),
+        ptype = 'times'     #                ptype = ToggleButtons(options=['zonal','latlon','times','spec']),
+        amin=0.0
+        amax=60.0 / 0.9
+        plotpres=1000.0
+#        models = ['LSCE_LMDZ5A', 'TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+#        models = ['LSCE_LMDZ5A','TM5_3x2','EMAC_T63','ACTM_T42L67','TOMCAT'] 
+        models = ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
+                       'EMAC_T63','EMAC_T106','ACTM_T42L67','TOMCAT']
+        # ['LSCE_LMDZ3','LSCE_LMDZ5A','TM5_3x2','TM5_1x1',
+                     #  'EMAC_T63','EMAC_T106','ACTM_T42L67','NIES','TOMCAT','GEOS']
+        tracers = ['NHsurface'] # '222Rn' '222RnE' 'SF6' 'e90' 'NHsurface' 'SHsurface' 'surface' 'land' 'ocean' 'troposphere' 'stratosphere'
+        self.plot_grid = False
+        self.plot_tropo = False
+        self.plot_specs = 2
+        self.plot_prog(dates, conversion, yaxis, ptype, amin, amax, 
+              plotpres, models, tracers) 
 
  
+    def plot_ts(self,axi,conc,latitude,pressure,conversion):
+        print('plot_ts',conc.shape,latitude.shape,pressure.shape,conversion,self.model)
 
 
     def plot_spec( self, axi, conc, latitude, pressure, conversion, yaxis):
@@ -442,6 +490,8 @@ class AoA_tools:
             ax = axi[1]
             dd = conc[0,:]
             ax.plot(latitude,conc[0,:],self.symbol2[self.imodel],linewidth=2)
+            self.nh.append(conc[0,:])
+            self.latitude.append(latitude)
             if latitude[0] < 0.:
                 self.dnh.append(np.interp(-40.0,latitude,conc[0,:]))
             else:
@@ -453,6 +503,7 @@ class AoA_tools:
         elif self.tracer == 'SHsurface':
             ax = axi[1]
             dd = conc[0,:]
+            self.sh.append(conc[0,:])
             ax.plot(latitude,conc[0,:],self.symbol2[self.imodel],linewidth=2)
             if latitude[0] < 0.:
                 self.dsh.append(np.interp(40.0,latitude,conc[0,:]))
@@ -640,7 +691,12 @@ class AoA_tools:
         elif model == 'EMAC_T106':
             pressure = pressure[:,100,200] # profile ocean.
         if model == 'NIES':
-            pressure = pressure*1e2
+            dsname = '%s/mmean.NIES-TM.NIES.p.nc'%(model)
+            ds1 = Dataset(dsname,'r')
+            pressure = ds1.variables['conc'][itimes]  # time,level,lat,lon
+            ds1.close()
+
+            #pressure = pressure*1e2
         
         # finally get the dataset needed: also sample the pressures selected:
         if self.transpose[imodel]:
@@ -658,6 +714,13 @@ class AoA_tools:
                 # TOMCAT has pressure reversed:
                 pressure = pressure[:,::-1,:,:]
                 conc = conc[:,::-1,:,:]
+            elif model == 'NIES':    # starts a zero lon, and has extra row...correct!
+                conc = ds.variables['conc'][itimes]
+                conc = conc[:,:,:,:]
+                longitude = longitude[:]
+                pressure = pressure[:,:,:,:]
+                conc = np.roll(conc,longitude.shape[0]/2+2,axis=3)
+                pressure = np.roll(pressure,longitude.shape[0]/2+2,axis=3)
             else:
                 conc = ds.variables['conc'][itimes]
         # make sure ordered in the right way!
@@ -706,10 +769,11 @@ class AoA_tools:
             else:
                 self.v = zmin + np.arange(21)*(conc.max() - zmin)/20 
         axp = axi.contourf(X,Y,conc,self.v)
-        if len(self.dates)==1:
-            axi.set_title(self.model+' '+self.tracer+' '+self.dates[0])
-        else:
-            axi.set_title(self.model+' '+self.tracer+' '+self.dates[0]+'-'+self.dates[-1])
+        #if len(self.dates)==1:
+        #    axi.set_title(self.model+' '+self.tracer+' '+self.dates[0])
+        #else:
+        #    axi.set_title(self.model+' '+self.tracer+' '+self.dates[0]+'-'+self.dates[-1])
+        axi.set_title(self.model+' '+self.tracer)
         if yaxis=='normal':
             axi.set_ylim(1e3,0)
         elif yaxis=='log':
@@ -863,8 +927,10 @@ class AoA_tools:
             if ptype != 'times' and ptype != 'spec':
                 if (nmodels == 5 and ptype == 'latlon'):
                     f,ax = pl.subplots(nmodels,figsize=(9,nmodels*5),sharex=True)   
+                elif (nmodels == 6):
+                    f,ax = pl.subplots(3,2,figsize=(15,10),sharex=True,sharey=True)
                 else:
-                    f,ax = pl.subplots(nmodels,figsize=(12,nmodels*5),sharex=True)   
+                    f,ax = pl.subplots(nmodels,figsize=(12,nmodels*5),sharex=True)
             elif ptype == 'times':
                 f,ax = pl.subplots(1,figsize=(12,5))   
             else:
@@ -877,14 +943,18 @@ class AoA_tools:
                 if ptype != 'times' and ptype != 'spec':
                     if nmodels == 1: 
                         axi = ax
-                    else:
+                    elif ax.ndim == 1:
                         axi = ax[i]
+                    else: # dim = 2
+                        ydim = ax.shape[0]
+                        xdim = ax.shape[1]
+                        axi = ax[np.mod(i,ydim),i/ydim]
                 else:
                     axi=ax
-                try:
-                    longitude,latitude,pressure,conc = self.get_fields(model,itracer,itimes)
-                except:
-                    continue  # skip this model if fail
+                #try:
+                longitude,latitude,pressure,conc = self.get_fields(model,itracer,itimes)
+                #except:
+                #    continue  # skip this model if fail
                 if ptype == 'zonal':
                     conc = conc.mean(axis=0)   # average over the times
                     pressure = pressure.mean(axis=0) # average over times
@@ -924,12 +994,26 @@ class AoA_tools:
                 axi.set_xlim([-90,90])
                 axi.grid(True)
                 axi.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+                # overplot measurements HATS/CATS (Notebook on Laptop)
+                sf6 = np.array([ 0.34772727,  0.35795455,  0.33661364,  0.30946212,  0.24039394,
+                        0.07897727,  0.0105    ,  0.        ,  0.3600303 ])
+                stdev = np.array([0.041640250579452059, 0.047112994996292283, 0.055300233947567071, 0.053183274498751494,
+                     0.033316152597127918, 0.035120456334849094, 0.022982371373280745, 0.0, 0.044242777084520797])
+                lat = [82.5, 71.3, 40.052, 19.5, 19.5, -14.3, -40.7, -90, 53]
+                snames = ['alt','brw','nwr','kum','mlo','smo','cgo','spo','mhd']
+                axi.errorbar(lat,sf6,yerr=stdev,fmt='o',color='grey',ecolor='grey',elinewidth=3,capsize=4,capthick=3)
 
+
+                for xlat,xname,xsf6 in zip(lat,snames,sf6):
+                    if xname != 'kum':
+                        axi.text(xlat,-0.05,xname)
+                    else:
+                        axi.text(xlat,0.0,xname)
 
                 axi.set_ylabel('SF6 relative to South Pole (ppt)')
 
                 axi = ax[1]
-                axi.set_ylim([0.5,1.2])
+                axi.set_ylim([0.4,1.2])
                 axi.grid(True)
                 axi.set_ylabel('Age of Air (year)')
                 f.savefig('spec.png')
@@ -939,7 +1023,7 @@ class AoA_tools:
                 axi.set_ylim([1000,100])
                 axi.set_xscale("log")
                 axi.set_xlim([1e-21,1e-19])
-                axi.set_xlabel('log(222Rn)')
+                axi.set_xlabel('222Rn mixing ratio (mol/mol)')
                 axi.set_ylabel('Pressure (hPa)')
                 axi.grid(True)
                 
